@@ -1,0 +1,21 @@
+{
+	"persistedWindowLayouts" : 
+	[
+		{
+			"initialPosition" : "156,449",
+			"initialSize" : 
+			{
+				"height" : 720.0,
+				"width" : 1139.0
+			},
+			"launchMode" : "default",
+			"tabLayout" : 
+			[
+				{
+					"action" : "openSettings",
+					"target" : "settingsUI"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,6 @@
+[user]
+    name = yunwanjiaex
+    email = yun.wanjia.ex@gmail.com
+[core]
+    autocrlf = input
+    fileMode = false

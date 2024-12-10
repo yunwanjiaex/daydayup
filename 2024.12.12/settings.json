@@ -1,0 +1,33 @@
+{
+    "workbench.startupEditor": "none",
+    "files.autoSave": "onFocusChange",
+    "git.enableSmartCommit": true,
+    "git.confirmSync": false,
+    "editor.formatOnPaste": true,
+    "editor.formatOnType": true,
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "on",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.colorTheme": "Quiet Light",
+    "explorer.confirmDelete": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.cursorBlinking": "solid",
+    "editor.maxTokenizationLineLength": 1e+36,
+    "[javascript]": {
+        "editor.maxTokenizationLineLength": 1e+36
+    },
+    "editor.minimap.showSlider": "always",
+    "update.showReleaseNotes": false,
+    "editor.fontSize": 16,
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter"
+    },
+    "search.useIgnoreFiles": false,
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: LLVM, IndentWidth: 4}",
+    "C_Cpp.errorSquiggles": "disabled",
+    "workbench.editor.empty.hint": "hidden",
+    "telemetry.telemetryLevel": "off",
+    "editor.renderWhitespace": "all",
+    "security.workspace.trust.enabled": false,
+    "security.workspace.trust.startupPrompt": "never"
+}
