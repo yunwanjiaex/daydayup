@@ -5,12 +5,12 @@
 3. 准备网卡驱动和其他相关驱动,解压软件 [7z](https://github.com/mcmilk/7-Zip-zstd) ,进 PE([Ventoy](https://www.ventoy.net/cn/index.html)+[FirePE](https://firpe.cn/page-247)) 安装系统
 ### 系统配置
 1. 安装网卡驱动和 `7z` ,使用 [kms.bat](./kms.bat) 激活系统,更改主机名,系统循环更新和重启直至完成
-2. 补完未能自动更新的驱动,禁用虚拟内存,[关闭系统还原](C:\Windows\system32\systempropertiesadvanced.exe),[禁用系统还原](组策略>计算机配置>管理模板>系统>系统还原>关闭系统还原>启用)
+2. 补完未能自动更新的驱动,禁用虚拟内存,关闭系统还原(systempropertiesadvanced.exe),[禁用系统还原](组策略>计算机配置>管理模板>系统>系统还原>关闭系统还原>启用)
 3. 使用 [power.bat](./power.bat) 开启卓越性能和关闭休眠,从不进入睡眠,20分钟关闭屏幕,如果是笔记本设置合盖无操作
 4. 杂项设置,如系统设置,任务管理器,文件资源管理器,桌面图标,回收站,记事本,拼音输入法等
 ### 刚需软件
 1. 分别在控制面板和设置中禁用 ie 和媒体播放器,使用 [ImageGlass](https://imageglass.org/) 和 [VLC](https://www.videolan.org/) 替代
-2. 使用 [windows-defender-remover](https://github.com/ionuttbara/windows-defender-remover) 删除 `Windows  Defender`
+2. 使用 [windows-defender-remover](https://github.com/ionuttbara/windows-defender-remover) 删除 `Windows Defender`
 3. 使用 [Remove-MS-Edge](https://github.com/ShadowWhisperer/Remove-MS-Edge) 删除 `Microsoft Edge`
 4. 使用 [windows-update-disabler](https://github.com/tsgrgo/windows-update-disabler) 禁用 Windows 更新
 5. 安装任务栏网速监控 [TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor) ,因为久不更新,所以留存备份,安装时将 [TrafficMonitor](./TrafficMonitor) 复制到 `%USERPROFILE%\Documents` 即可,依赖 [Visual C++ 运行环境](https://aka.ms/vs/17/release/vc_redist.x64.exe)

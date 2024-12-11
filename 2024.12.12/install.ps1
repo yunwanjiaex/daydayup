@@ -75,3 +75,22 @@ code --force `
     --install-extension ms-vscode.hexeditor `
     --install-extension ms-python.python `
     --install-extension ms-python.black-formatter
+
+# vmware
+Invoke-WebRequest -Uri https://softwareupdate.vmware.com/cds/vmw-desktop/ws/17.6.1/24319023/windows/core/VMware-workstation-17.6.1-24319023.exe.tar -OutFile a.tar # 版本写死,被博通收购后谨慎新版本
+& "C:\Program Files\7-Zip-Zstandard\7z.exe" x .\a.tar -oa -aoa
+Start-Process -FilePath ".\a\VMware-workstation-17.6.1-24319023.exe" -ArgumentList '/s /v"/qn SERIALNUMBER=MC60H-DWHD5-H80U9-6V85M-8280D AUTOSOFTWAREUPDATE=0 DATACOLLECTION=0 EULAS_AGREED=1"' -Wait
+Remove-Item -Force -Recurse -Path a.tar, a
+# 设置内网 ip
+$env:path += ";C:\Program Files (x86)\VMware\VMware Workstation"
+Start-Process -Wait -FilePath vnetlib -ArgumentList '-- stop nat'
+Start-Process -Wait -FilePath vnetlib -ArgumentList '-- stop dhcp'
+Start-Process -Wait -FilePath vnetlib -ArgumentList '-- set vnet vmnet8 mask 255.255.255.0'
+Start-Process -Wait -FilePath vnetlib -ArgumentList '-- set vnet vmnet8 addr 192.168.88.0'
+Start-Process -Wait -FilePath vnetlib -ArgumentList '-- update dhcp vmnet8'
+Start-Process -Wait -FilePath vnetlib -ArgumentList '-- update nat vmnet8'
+Start-Process -Wait -FilePath vnetlib -ArgumentList '-- update adapter vmnet8'
+Copy-Item -Force -Path C:\ProgramData\VMware\vmnetdhcp.conf -Destination C:\ProgramData\VMware\vmnetdhcp.conf.ori
+Get-Content -Path .\dhcp.txt | Add-Content -Path C:\ProgramData\VMware\vmnetdhcp.conf
+Start-Process -Wait -FilePath vnetlib -ArgumentList '-- start dhcp'
+Start-Process -Wait -FilePath vnetlib -ArgumentList '-- start nat'
