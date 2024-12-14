@@ -12,3 +12,4 @@
 | 2024.12.16 | [自解压执行文件](./2024.12.16/README.md) | Windows, Linux |
 | 2024.12.17 | [aria2 下载器](./2024.12.17/README.md) | Software |
 | 2024.12.18 | [制作P社凝聚力补丁](./2024.12.18/README.md) | Steam |
+| 2024.12.19 | [更新 Steam 和 Github 的 hosts](./2024.12.19/update_hosts.ps1) | Steam |
