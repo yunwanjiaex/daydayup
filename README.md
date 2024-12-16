@@ -12,4 +12,6 @@
 | 2024.12.16 | [自解压执行文件](./2024.12.16/README.md) | Windows, Linux |
 | 2024.12.17 | [aria2 下载器](./2024.12.17/README.md) | Software |
 | 2024.12.18 | [制作P社凝聚力补丁](./2024.12.18/README.md) | Steam |
-| 2024.12.19 | [更新 Steam 和 Github 的 hosts](./2024.12.19/update_hosts.ps1) | Steam |
+| 2024.12.19 | [更新 Github 的 hosts](./2024.12.19/update_hosts.ps1) | Software |
+| 2024.12.20 | [Windows 远程桌面服务](./2024.12.20/README.md) | Windows |
+| 2024.12.21 | [Windows Server 2025 虚拟机初始化](./2024.12.21/win2025.bat) | Windows |

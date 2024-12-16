@@ -24,8 +24,9 @@ add-path "C:\Program Files\MinGit\cmd"
 # terminal
 $t = get-github-tag microsoft/terminal # v1.21.3231.0
 Invoke-WebRequest -Uri https://github.com/microsoft/terminal/releases/download/$t/Microsoft.WindowsTerminal_$($t -replace '^v','')_x64.zip -OutFile a.zip
-Expand-Archive -Path a.zip -DestinationPath "$env:USERPROFILE\Documents\terminal"
-Remove-Item -Force -Recurse -Path a.zip
+Expand-Archive -Path a.zip
+Move-Item -Path ".\a\terminal*" -Destination "$env:USERPROFILE\Documents\terminal"
+Remove-Item -Force -Recurse -Path a.zip, a
 # 注册右键菜单
 $r = [Microsoft.Win32.RegistryKey]::OpenBaseKey("ClassesRoot", "Default")
 $r = $r.CreateSubKey("Directory\Background\shell\wt", $true)

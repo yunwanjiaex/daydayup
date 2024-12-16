@@ -43,10 +43,12 @@
     cscript ospp.vbs /act
     ```
 ### [Microsoft Activation Scripts](https://github.com/massgravel/Microsoft-Activation-Scripts)
-多合一激活脚本,详见[官网](https://massgrave.dev/)文档,利弊写的很清楚.总之就是运行 `MAS/All-In-One-Version-KL/MAS_AIO.cmd` 从4种激活方式中选一种
-| 激活类型 | 支持产品 | 激活时效 | 需要联网 |
-| :---: | :---: | :---: | :---: |
-| HWID | Windows 10,11 | 永久 | 是 |
-| Ohook | Office 2013 及之后但不包括 UWP | 永久 | 否 |
-| KMS38 | Windows 10,11 和 Server 2016 及之后 | 到 2038 年 | 否 |
-| Online KMS | Windows 和 Office | 180 天自动续期 | 是 |
+1. 多合一激活脚本,详见[官网](https://massgrave.dev/)文档,利弊写的很清楚.总之就是运行 `MAS/All-In-One-Version-KL/MAS_AIO.cmd` 从4种激活方式中选一种
+    | 激活类型 | 支持产品 | 激活时效 | 需要联网 |
+    | :---: | :---: | :---: | :---: |
+    | HWID | Windows 10/11 | 永久 | 是 |
+    | Ohook | Office 2013 及之后但不包括 UWP | 永久 | 否 |
+    | KMS38 | Windows 10/11 和 Server 2016 及之后 | 到 2038 年 | 否 |
+    | Online KMS | Windows 和 Office | 180 天自动续期 | 是 |
+2. 镜像下载链接: [Windows Server](https://massgrave.dev/windows_server_links), [Windows 10/11 LTSC](https://massgrave.dev/windows_ltsc_links)
+3. 命令行激活: `.\MAS_AIO.cmd /KMS38`

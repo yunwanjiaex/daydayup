@@ -18,7 +18,7 @@ host VMnet8 {
     fixed-address 192.168.88.150;
 }
 
-# win2022
+# win2025
 host VMnet8 {
     hardware ethernet 00:50:56:2B:29:C9;
     fixed-address 192.168.88.160;

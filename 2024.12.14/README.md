@@ -32,8 +32,12 @@
 6. 最重要的一步就是在 steam 中解锁游戏.不然即使下载好了游戏文件, steam 中也只会显示`购买`而非`开始游戏`.这里使用 [GreenLuma 2024 1.6.1](https://cs.rin.ru/forum/viewtopic.php?f=10&t=103709) 对 steam 进行注入.首先备份 steam 安装目录下的 `bin\x64launcher.exe` ,将论坛下载的压缩包解压后覆盖到安装目录,双击 `DLLInjector.exe`.输入要解锁的游戏ID和`DLC`ID(在 `AppList` 下创建文件效果一样)
 
     ![injector](./injector.png)
-7. 进入 steam 后, `win + r` 输入 `steam://install/955900` 开始安装,一般来说完成后就可以正常启动了,但有些游戏比如`修仙模拟器`会弹出 `application loaderror 6:0000065432` 的错误,此时需要使用 [Steamless](https://github.com/atom0s/Steamless) 对游戏启动器进行脱壳.下载后运行 `Steamless.exe` ,选择 `C:\Program Files (x86)\Steam\steamapps\common\AmazingCultivationSimulator\Amazing Cultivation Simulator.exe`
+7. 进入 steam 后, `win + r` 输入 `steam://install/955900` 开始安装,一般来说完成后就可以正常启动了,但有些游戏比如`修仙模拟器`会弹出错误
+
+    ![error](./error.png)
+
+    此时需要使用 [Steamless](https://github.com/atom0s/Steamless) 对游戏启动器进行脱壳.下载后运行 `Steamless.exe` ,选择 `C:\Program Files (x86)\Steam\steamapps\common\AmazingCultivationSimulator\Amazing Cultivation Simulator.exe`
 
     ![steamless](./steamless.png)
 
-    点击 `Unpack File` 会在同目录生成一个后缀为 `unpacked.exe` 的程序,用它替换掉原来的 `exe` 游戏即可顺利运行
+    点击 `Unpack File` 会在同目录生成一个后缀为 `unpacked.exe` 的程序,用它替换掉原文件即可顺利运行
