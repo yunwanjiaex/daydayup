@@ -15,3 +15,5 @@
 | 2024.12.19 | [更新 Github 的 hosts](./2024.12.19/update_hosts.ps1) | Software |
 | 2024.12.20 | [Windows 远程桌面服务](./2024.12.20/README.md) | Windows |
 | 2024.12.21 | [Windows Server 2025 虚拟机初始化](./2024.12.21/win2025.bat) | Windows |
+| 2024.12.22 | [Windows 文件共享服务](./2024.12.22/README.md) | Windows |
+| 2024.12.23 | [Debian 12 虚拟机初始化](./2024.12.23/debian12.sh) | Linux |
