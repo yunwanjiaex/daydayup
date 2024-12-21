@@ -29,11 +29,11 @@
     secedit /configure /db sec.sdb /cfg cfg.ini
     gpupdate /force
     ```
-    客户端允许匿名登录,即可使用任意用户名登录服务
+    客户端允许匿名登录,可使用任意用户名登录服务
     ```cmd
     reg add HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters /v AllowInsecureGuestAuth /t REG_DWORD /d 1 /f
     ```
-5. 第三方工具如 [gohttpserver](https://github.com/codeskyblue/gohttpserver)
+5. 第三方工具如 [gohttpserver](https://github.com/codeskyblue/gohttpserver) ,另外还有一些带有图形界面的程序可以用 [winsw](https://github.com/winsw/winsw) 打包成系统服务来使用
     ```powershell
     .\gohttpserver.exe --root=C:\Users\kafka\Downloads --addr=0.0.0.0:8080 --upload --delete --no-index
     # 命令行下载

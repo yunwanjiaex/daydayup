@@ -17,3 +17,7 @@
 | 2024.12.21 | [Windows Server 2025 虚拟机初始化](./2024.12.21/win2025.bat) | Windows |
 | 2024.12.22 | [Windows 文件共享服务](./2024.12.22/README.md) | Windows |
 | 2024.12.23 | [Debian 12 虚拟机初始化](./2024.12.23/debian12.sh) | Linux |
+| 2024.12.24 | [重启后继续执行](./2024.12.24/README.md) | Windows, Linux |
+| 2024.12.25 | [提权到 TrustedInstaller](./2024.12.25/README.md) | Windows |
+| 2024.12.26 | [生成一个新目录](./2024.12.26/new_folder.ps1) | Software |
+| 2024.12.27 | [移除测试模式水印](./2024.12.27/README.md) | Windows |

@@ -1,19 +1,19 @@
 # 激活 Windows 与 Office
 ### vlmcsd
 下载 [Wind4/vlmcsd](https://github.com/Wind4/vlmcsd/releases) 服务端,防火墙放行1688端口,虽已停更但依旧好使
-    ```bash
-    binaries/Windows/intel/vlmcsd-Windows-x64.exe # Windows
-    binaries/Linux/intel/static/vlmcsd-x64-musl-static # Linux
-    ```
+```bash
+binaries/Windows/intel/vlmcsd-Windows-x64.exe # Windows
+binaries/Linux/intel/static/vlmcsd-x64-musl-static # Linux
+```
 ### Windows
 根据 [KMS密钥](https://learn.microsoft.com/zh-cn/windows-server/get-started/kms-client-activation-keys) 在网上搜索对应的镜像文件,注意要有`VL`,`SW_`,`批量授权`等字样,完成系统安装后执行如下命令
-    ```bat
-    slmgr //b /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
-    slmgr //b /skms 192.168.xx.xx
-    slmgr //b /ato
-    ```
-
-如需转换 Windows 版本,找到目标版本的系统,将 `C:\Windows\System32\spp\tokens\skus` 覆盖到要转换的系统,执行`slmgr /rilc`
+```bat
+slmgr //b /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
+slmgr //b /skms 192.168.xx.xx
+slmgr //b /ato
+```
+如需转换 Windows 版本,找到目标版本的系统,将 `C:\Windows\System32\spp\tokens\skus` 覆盖到要转换的系统,执行
+`slmgr /rilc`
 ### Office
 1. 下载运行 [ODT工具](https://www.microsoft.com/en-us/download/details.aspx?id=49117) 得到 `setup.exe`
 2. 使用 [Office自定义工具](https://config.office.com/deploymentsettings) 制作配置文件 `configuration.xml` ,以下是可以用在 `Office LTSC 2024` 的配置文件,[PIDKEY](https://learn.microsoft.com/en-us/office/volume-license-activation/gvlks) ,只安装了三件套
