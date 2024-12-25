@@ -9,20 +9,25 @@
 | 2024.12.13 | [离线启动 Steam 游戏](./2024.12.13/README.md) | Steam |
 | 2024.12.14 | [Steam 假入库流程](./2024.12.14/README.md) | Steam |
 | 2024.12.15 | [Windows 的备份与还原](./2024.12.15/README.md) | Windows |
-| 2024.12.16 | [自解压执行文件](./2024.12.16/README.md) | Windows, Linux |
+| 2024.12.16 | [自解压执行文件](./2024.12.16/README.md) | Wheel |
 | 2024.12.17 | [aria2 下载器](./2024.12.17/README.md) | Software |
 | 2024.12.18 | [制作P社凝聚力补丁](./2024.12.18/README.md) | Steam |
-| 2024.12.19 | [更新 Github 的 hosts](./2024.12.19/update_hosts.ps1) | Software |
+| 2024.12.19 | [更新 Github 的 hosts](./2024.12.19/update_hosts.ps1) | Wheel |
 | 2024.12.20 | [Windows 远程桌面服务](./2024.12.20/README.md) | Windows |
 | 2024.12.21 | [Windows Server 2025 虚拟机初始化](./2024.12.21/win2025.bat) | Windows |
 | 2024.12.22 | [Windows 文件共享服务](./2024.12.22/README.md) | Windows |
 | 2024.12.23 | [Debian 12 虚拟机初始化](./2024.12.23/debian12.sh) | Linux |
-| 2024.12.24 | [重启后继续执行](./2024.12.24/README.md) | Windows, Linux |
+| 2024.12.24 | [重启后继续执行](./2024.12.24/README.md) | Wheel |
 | 2024.12.25 | [提权到 TrustedInstaller](./2024.12.25/README.md) | Windows |
-| 2024.12.26 | [生成一个新目录](./2024.12.26/new_folder.ps1) | Software |
+| 2024.12.26 | [生成一个新目录](./2024.12.26/new_folder.ps1) | Wheel |
 | 2024.12.27 | [移除测试模式水印](./2024.12.27/README.md) | Windows |
-| 2024.12.28 | [转换哔哩哔哩视频缓存](./2024.12.28/README.md) | Software |
+| 2024.12.28 | [转换哔哩哔哩视频缓存](./2024.12.28/README.md) | Wheel |
 | 2024.12.29 | [修改《戴森球计划》存档的创建者](./2024.12.29/README.md) | Steam |
 | 2024.12.30 | [同步 RHEL 软件仓库](./2024.12.30/README.md) | Linux |
 | 2024.12.31 | [RHEL/Rocky 9 虚拟机初始化](./2024.12.31/rocky9.sh) | Linux |
-| 2025.01.01 | [xxxxxxxxxx](./2025.01.01/README.md) | xxxxxxxxx |
+| 2025.01.01 | [Kiosk 演示模式](./2025.01.01/README.md) | Windows, Linux |
+| 2025.01.02 | [使用 git 进行远控](./2025.01.02/README.md) | Wheel |
+| 2025.01.03 | [系统一键自毁](./2025.01.03/README.md) | Windows, Linux |
+| 2025.01.04 | [制作 Windows PE](./2025.01.04/README.md) | Windows |
+| 2025.01.05 | [制作 Debian 12 的 LiveCD](./2025.01.05/live12.sh) | Linux |
+| 2025.01.06 | [系统一键重装](./2025.01.06/README.md) | Windows, Linux |
