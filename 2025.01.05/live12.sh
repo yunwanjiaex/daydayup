@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-# 制作 Debian 12 的 LiveCD ,参考 https://www.willhaley.com/blog/custom-debian-live-environment/
+# 制作 Debian 12 LiveCD ,参考 https://www.willhaley.com/blog/custom-debian-live-environment/
 
 apt-get update
 apt-get install -y debootstrap squashfs-tools xorriso isolinux syslinux-efi grub-pc-bin grub-efi-amd64-bin grub-efi-ia32-bin mtools dosfstools

@@ -29,5 +29,8 @@
 | 2025.01.02 | [使用 git 进行远控](./2025.01.02/README.md) | Wheel |
 | 2025.01.03 | [系统一键自毁](./2025.01.03/README.md) | Windows, Linux |
 | 2025.01.04 | [制作 Windows PE](./2025.01.04/README.md) | Windows |
-| 2025.01.05 | [制作 Debian 12 的 LiveCD](./2025.01.05/live12.sh) | Linux |
+| 2025.01.05 | [制作 Debian 12 LiveCD](./2025.01.05/live12.sh) | Linux |
 | 2025.01.06 | [系统一键重装](./2025.01.06/README.md) | Windows, Linux |
+| 2025.01.07 | [跨平台执行的脚本](./2025.01.07/README.md) | Wheel |
+| 2025.01.08 | [双守护进程](./2025.01.08/double.sh) | Wheel |
+| 2025.01.09 | [发送 smtp 邮件](./2025.01.09/smtp.py) | Wheel |

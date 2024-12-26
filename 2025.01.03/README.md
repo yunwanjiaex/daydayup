@@ -29,7 +29,7 @@ echo b > /proc/sysrq-trigger # 重启
 2. 使用随机密钥加密 BitLocker
     ```ps1
     # 组策略: 计算机配置 -> 管理模板 -> Windows 组件 -> BitLocker 驱动器加密 -> 操作系统驱动器 -> 启动时需要附加身份验证 -> 已启用
-    $p="HKLM:\SOFTWARE\Policies\Microsoft\FVE"
+    $p = "HKLM:\SOFTWARE\Policies\Microsoft\FVE"
     New-Item -Force -Path $p
     Set-ItemProperty -Path $p -Name "EnableBDEWithNoTPM" -Value 1
     Set-ItemProperty -Path $p -Name "UseAdvancedStartup" -Value 1
@@ -47,4 +47,4 @@ echo b > /proc/sysrq-trigger # 重启
         Start-Sleep -Seconds 5
     }
     ```
-    重启后,在开机时会要求输入密码,但是密码是啥谁也不知道.只需以管理员权限运行,但对于已经启用 `BitLocker` 的机器无效
+    脚本以管理员权限运行,但对于已经启用 `BitLocker` 的机器无效.重启后,在开机时会要求输入密码,但是密码是啥谁也不知道
