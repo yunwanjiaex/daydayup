@@ -1,6 +1,15 @@
 ; 自定义 CapsLock 键
 SetCapsLockState "AlwaysOff"
 
+#NoTrayIcon
+; 是否显示任务栏图标
+CapsLock:: {
+    if (A_IconHidden = 0)
+        A_IconHidden := 1
+    else
+        A_IconHidden := 0
+}
+
 ; 打开记事本保存一些临时文本
 CapsLock & n:: {
     ; 在这个目录下 C:\Users\kunkun\AppData\Local\Temp
@@ -49,21 +58,5 @@ CapsLock & s:: {
     SoundSetMute false
 }
 
-; 定时移动鼠标以保持屏幕常亮
-CapsLock & m:: {
-    f := A_Temp . "\mouse.exist"
-    if FileExist(f) {
-        SetTimer mouse_move, 0
-        FileDelete(f)
-    } else {
-        ; 每1分钟动一下鼠标
-        SetTimer mouse_move, 60000
-        FileAppend("", f)
-    }
-    mouse_move() {
-        MouseMove 1, 1, 100, "R"
-    }
-
-}
-
 CapsLock & e:: Run('explorer.exe ' A_MyDocuments '\..\Downloads')
+CapsLock & t:: Run(A_MyDocuments '\terminal\wt.exe -d ' A_MyDocuments '\..\Downloads')
