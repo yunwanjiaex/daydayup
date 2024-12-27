@@ -34,3 +34,5 @@
 | 2025.01.07 | [跨平台执行的脚本](./2025.01.07/README.md) | Wheel |
 | 2025.01.08 | [双守护进程](./2025.01.08/double.sh) | Wheel |
 | 2025.01.09 | [发送 smtp 邮件](./2025.01.09/smtp.py) | Wheel |
+| 2025.01.10 | [自定义 CapsLock 键](./2025.01.10/capslock.ahk) | Wheel |
+| 2025.01.11 | [批量克隆 VMware Workstation 虚拟机](./2025.01.11/clone_vm.ps1) | Wheel |
