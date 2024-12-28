@@ -6,12 +6,12 @@
 | 2024.12.10 | [安装 Windows 10 LTSC](./2024.12.10/README.md) | Windows |
 | 2024.12.11 | [激活 Windows 与 Office](./2024.12.11/README.md) | Windows |
 | 2024.12.12 | [常用软件的安装与配置](./2024.12.12/install.ps1) | Software |
-| 2024.12.13 | [离线启动 Steam 游戏](./2024.12.13/README.md) | Steam |
-| 2024.12.14 | [Steam 假入库流程](./2024.12.14/README.md) | Steam |
+| 2024.12.13 | [离线启动 Steam 游戏](./2024.12.13/README.md) | Game |
+| 2024.12.14 | [Steam 假入库流程](./2024.12.14/README.md) | Game |
 | 2024.12.15 | [Windows 的备份与还原](./2024.12.15/README.md) | Windows |
 | 2024.12.16 | [自解压执行文件](./2024.12.16/README.md) | Wheel |
 | 2024.12.17 | [aria2 下载器](./2024.12.17/README.md) | Software |
-| 2024.12.18 | [制作P社凝聚力补丁](./2024.12.18/README.md) | Steam |
+| 2024.12.18 | [制作P社凝聚力补丁](./2024.12.18/README.md) | Game |
 | 2024.12.19 | [更新 Github 的 hosts](./2024.12.19/update_hosts.ps1) | Wheel |
 | 2024.12.20 | [Windows 远程桌面服务](./2024.12.20/README.md) | Windows |
 | 2024.12.21 | [Windows Server 2025 虚拟机初始化](./2024.12.21/win2025.bat) | Windows |
@@ -22,7 +22,7 @@
 | 2024.12.26 | [生成一个新目录](./2024.12.26/new_folder.ps1) | Wheel |
 | 2024.12.27 | [移除测试模式水印](./2024.12.27/README.md) | Windows |
 | 2024.12.28 | [转换哔哩哔哩视频缓存](./2024.12.28/README.md) | Wheel |
-| 2024.12.29 | [修改《戴森球计划》存档的创建者](./2024.12.29/README.md) | Steam |
+| 2024.12.29 | [修改《戴森球计划》存档的创建者](./2024.12.29/README.md) | Game |
 | 2024.12.30 | [同步 RHEL 软件仓库](./2024.12.30/README.md) | Linux |
 | 2024.12.31 | [RHEL/Rocky 9 虚拟机初始化](./2024.12.31/rocky9.sh) | Linux |
 | 2025.01.01 | [Kiosk 演示模式](./2025.01.01/README.md) | Windows, Linux |
@@ -36,9 +36,13 @@
 | 2025.01.09 | [发送 smtp 邮件](./2025.01.09/smtp.py) | Wheel |
 | 2025.01.10 | [自定义 CapsLock 键](./2025.01.10/capslock.ahk) | Wheel |
 | 2025.01.11 | [批量克隆 VMware Workstation 虚拟机](./2025.01.11/clone_vm.ps1) | Wheel |
-| 2025.01.12 | [低配 ansible](./2025.01.12/README.md) | Wheel |
+| 2025.01.12 | [低配 ansible](./2025.01.12/s.sh) | Wheel |
 | 2025.01.13 | [ssh 免输密登录](./2025.01.13/README.md) | Linux |
 | 2025.01.14 | [sshd 和 nginx 共用端口](./2025.01.14/README.md) | Linux |
 | 2025.01.15 | [监控 ssh 会话](./2025.01.15/README.md) | Linux |
 | 2025.01.16 | [ssh 蜜罐](./2025.01.16/README.md) | Linux |
 | 2025.01.17 | [自定义 ssh 登录验证](./2025.01.17/README.md) | Linux |
+| 2025.01.18 | [Windows 启用 sshd](./2025.01.18/README.md) | Windows |
+| 2025.01.19 | [远程 PowerShell](./2025.01.19/README.md) | Windows |
+| 2025.01.20 | [贪吃蛇](./2025.01.20/snake.sh) | Game |
+| 2025.01.21 | [Linux 的备份与还原](./2025.01.21/README.md) | Linux |
