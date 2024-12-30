@@ -99,11 +99,5 @@
     </Configs>
     </AssignedAccessConfiguration>
     ```
-    指定运行 `explorer`, `edge` 和 `powershell` ,并且可以读写`Downloads`文件夹和U盘,安装的命令也有一点不一样
-    ```ps1
-    $conf = Get-Content -Path config.xml
-    $o = Get-CimInstance -Namespace "root\cimv2\mdm\dmmap" -ClassName "MDM_AssignedAccess"
-    $o.Configuration = [System.Net.WebUtility]::HtmlEncode($conf)
-    Set-CimInstance -CimInstance $o
-    ```
+    指定运行 `explorer`, `edge` 和 `powershell` ,并且可以读写 `Downloads` 文件夹和U盘,安装命令也有所不同,将 `$o.ShellLauncher` 改为 `$o.Configuration`
     ![](./26.png)

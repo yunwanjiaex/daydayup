@@ -18,6 +18,6 @@ expect {
 interact
 ```
 ### [tssh](https://github.com/trzsz/trzsz-ssh)
-* 支持登录验证和非明文密码,和 expect 功能相同但通过配置文件实现,详见[Trzsz-ssh(tssh)中文文档](https://trzsz.github.io/cn/ssh#section-6)
-* 客户端使用 `tssh` ,服务端使用 [trzsz](https://github.com/trzsz/trzsz) ,可以让普通终端连接 ssh 时和服务器互传文件
-* 如果客户端还安装了[lrzsz-win32](https://github.com/trzsz/lrzsz-win32),可以直接支持服务端的 `lrzsz`
+* 支持登录验证和非明文密码,和 expect 功能相同但通过配置文件实现,详见 [Trzsz-ssh(tssh)中文文档](https://trzsz.github.io/cn/ssh#section-6)
+* 客户端使用 `tssh` ,服务端配合使用 [trzsz](https://github.com/trzsz/trzsz) ,可以让普通终端连接 ssh 时和服务器互传文件
+* 如果客户端安装了[lrzsz-win32](https://github.com/trzsz/lrzsz-win32),可以直接支持服务端的 `lrzsz` 而无需额外安装 `trzsz`

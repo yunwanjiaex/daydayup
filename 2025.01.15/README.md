@@ -1,10 +1,6 @@
 ﻿# 监控 ssh 会话
 ### ttylog
-当用户已经处于登录状态时,可以用 [ttylog](https://metacpan.org/release/BBB/ttylog-0.85/view/ttylog) 查看他的会话内容,原理是通过 `strace` 调试对方的 sshd 进程
-1. 从 `cpan` 下载的压缩包中提取出 `ttylog` 文件,这是一段 `perl` 脚本
-2. 用 `w` 命令找到他所在的 `TTY` ,如 `pts/0`
-3. 确保自己拥有高于或等于对方的权限,同时确保自己的窗口比对方的宽以避免不必要的折行
-4. 执行`./ttylog pts/0`
+当用户已经处于登录状态时,可以用 [ttylog](https://metacpan.org/release/BBB/ttylog-0.85/view/ttylog) 查看他的会话内容,原理是通过 `strace` 调试对方的 sshd 进程.要确保自己拥有高于或等于对方的权限,和比对方更宽的窗口以避免不必要的折行,然后执行 `./ttylog pts/0` ,`pts/0` 为对方的终端设备
 ### ttyecho
 同时可以用以下脚本 `ttyecho` 控制对方的终端,强行插入自己的命令
 ```python

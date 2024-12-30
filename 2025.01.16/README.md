@@ -25,7 +25,7 @@
     ```
 2. 在docker中运行
     ```bash
-    docker run --restart=always -dv /opt/ssh:/opt/ssh -p 2222:22 debian:12 /opt/ssh/sbin/sshd -DE /opt/ssh/var/auth.log
+    docker run --restart=always -dv /opt/ssh:/opt/ssh -p 22:22 debian:12 /opt/ssh/sbin/sshd -DE /opt/ssh/var/auth.log
     ```
 3. 登录一下试试
 

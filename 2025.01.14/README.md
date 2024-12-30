@@ -49,8 +49,8 @@
 
     systemctl restart nginx.service
     ```
-    用`ssh xx.xx.xx.xx -p 443`访问可打开shell,用浏览器访问`https://xx.xx.xx.xx`可打开网页
-3. 方案二: 通过浏览器访问服务器终端.将 [ttyd](https://github.com/tsl0922/ttyd) 下载到 `/usr/local/bin` 然后编辑 `ttyd.service` 在 `127.0.0.1:8080` 提供服务
+    用 `ssh xx.xx.xx.xx -p 443` 访问可打开 shell, 用浏览器访问 `https://xx.xx.xx.xx` 可打开网页
+3. 方案二: 通过网页访问服务器终端.将 [ttyd](https://github.com/tsl0922/ttyd) 下载到 `/usr/local/bin` 然后编辑 `ttyd.service` 在 `127.0.0.1:8080` 提供服务
     ```ini
     # /usr/lib/systemd/system/ttyd.service
     [Unit]
@@ -96,7 +96,7 @@
     ```bash
     ssh root@127.0.0.1 -p 9999
     ```
-5. 方案三改: 在 tcp 数据包中增加关键字做为开关,以达到按时按需启用的目的.服务端执行
+5. 方案三改: 在 tcp 数据包中增加关键字做为开关,以达到按时按需启用的目的.服务端改为执行
     ```bash
     iptables -t nat -N hetshaen
     iptables -t nat -A hetshaen -p tcp -j REDIRECT --to-port 22
@@ -109,8 +109,6 @@
     ```
     客户端执行
     ```bash
-    # 开启复用
-    echo MakkaPakka > /dev/tcp/xx.xx.xx.xx/443
-    # 关闭复用
-    echo UpsyDaisy > /dev/tcp/xx.xx.xx.xx/443
+    echo MakkaPakka > /dev/tcp/xx.xx.xx.xx/443 # 开启
+    echo UpsyDaisy > /dev/tcp/xx.xx.xx.xx/443 # 关闭
     ```

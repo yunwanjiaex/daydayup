@@ -4,3 +4,4 @@
 
     ![](./1.png) ![](./2.png)
 3. 原理是劫持了 `C:\Windows\System32\explorerframe.dll` 的 `ExtTextOutW` 函数,具体可参考 [Universal-Watermark-Disabler-Reverse-Engineering](https://github.com/0xda568/Universal-Watermark-Disabler-Reverse-Engineering)
+4. 在不进入测试模式的前提下加载未签名驱动可以使用 [KDMapper](https://github.com/TheCruZ/kdmapper) ,但是限制太多,需要定制驱动源代码

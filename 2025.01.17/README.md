@@ -42,7 +42,7 @@
         * cfg: `AuthenticationMethods publickey keyboard-interactive`
         * pam: 注释掉 `@include common-auth` 行,并在此行之前添加 `auth required pam_google_authenticator.so`
 ### Python PAM
-1. 编译 `pam_python3.so`
+1. 编译 [pam_python3.so](https://sourceforge.net/p/pam-python/tickets/5/)
     ```bash
     apt install libpam0g-dev
     git clone --branch v20231123 https://git.code.sf.net/p/pam-python-py3/code pam-python-py3

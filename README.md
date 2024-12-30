@@ -46,3 +46,10 @@
 | 2025.01.19 | [远程 PowerShell](./2025.01.19/README.md) | Windows |
 | 2025.01.20 | [贪吃蛇](./2025.01.20/snake.sh) | Game |
 | 2025.01.21 | [Linux 的备份与还原](./2025.01.21/README.md) | Linux |
+| 2025.01.22 | [nftables 的常用配置](./2025.01.22/README.md) | Linux |
+| 2025.01.23 | [Windows 修改按键映射](./2025.01.23/README.md) | Windows |
+| 2025.01.24 | [Windows 映像劫持](./2025.01.24/README.md) | Windows |
+| 2025.01.25 | [端口敲门](./2025.01.25/README.md) | Linux |
+| 2025.01.26 | [打包 Linux 二进制文件](./2025.01.26/README.md) | Linux |
+| 2025.01.27 | [Linux 文件的打开方式](./2025.01.27/README.md) | Linux |
+| 2025.01.28 | [绑定进程到 CPU 指定核心](./2025.01.28/README.md) | Linux |

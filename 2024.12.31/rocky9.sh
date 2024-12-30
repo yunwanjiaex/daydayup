@@ -109,7 +109,7 @@ cNZXBl+wZG+qZLKLmmX3K/1B2Js6EQJeUrt28r35g7nxQwjnE9qrPMM02TCvU1kQ6VyAu4
 6NDnY/Rt3mPW8AAAAJcm9vdEBrYWxpAQI=
 -----END OPENSSH PRIVATE KEY-----
 ' > .ssh/id_rsa
-echo 'Host 192.168.* 10.* 172.16.* 172.17.* 172.18.* 172.19.* 172.2?.* 172.30.* 172.31.* 
+echo 'Host *
     User root
     IdentityFile ~/.ssh/id_rsa
     StrictHostKeyChecking no

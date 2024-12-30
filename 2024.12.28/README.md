@@ -16,6 +16,9 @@ Get-ChildItem -Path $directory -Recurse -Include video.m4s | ForEach-Object {
 * 修改 [ffmpeg](https://github.com/BtbN/FFmpeg-Builds/releases) 为自己的安装目录,将缓存传到电脑里,和脚本同目录,右键运行即可
 ### PC端
 ```powershell
+param($directory = $PSScriptRoot)
+function ffmpeg { & "C:\Program Files\ffmpeg\bin\ffmpeg.exe" $args }
+
 Get-ChildItem -Path $directory -Recurse -Include videoInfo.json | ForEach-Object {
     $d = $_.DirectoryName
     $title = Get-Content -Path "$d\videoInfo.json" -Encoding UTF8 | ConvertFrom-Json
@@ -31,12 +34,13 @@ Get-ChildItem -Path $directory -Recurse -Include videoInfo.json | ForEach-Object
     ffmpeg -i $files[0] -i $files[1] -c copy "$title.mp4"
 }
 ```
-* 由手机端脚本略微修改
 ### 切割分p视频然后合并
 ```powershell
+param($directory = $PSScriptRoot)
+function ffmpeg { & "C:\Program Files\ffmpeg\bin\ffmpeg.exe" $args }
+
 # 取每段视频的前 8 分钟
 $len = 480
-
 Get-ChildItem -Filter *.mp4 | Sort-Object { # 确保顺序正常
     [regex]::Replace($_.Name, '\d+', { $args[0].Value.PadLeft(20) })
 } | Select-Object -ExpandProperty Name | ForEach-Object -Begin { $c = 0 } -Process {

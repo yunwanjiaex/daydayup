@@ -122,14 +122,14 @@
 ### Windows to Linux
 1. 安装 [grub4dos-for_UEFI](https://github.com/chenall/grub4dos/releases/tag/for_UEFI) 用于引导 Linux 安装镜像
     ```cmd
-    cd grub4dos-for_UEFI-2024-02-26
+    cd grub4dos-for_UEFI-2024-12-16
     mountvol R: /S
     md R:\EFI\grub
     copy /y BOOTX64.EFI R:\EFI\Boot\
     copy /y menu.lst R:\EFI\grub\
     bcdedit /set "{bootmgr}" path \EFI\Boot\BOOTX64.EFI
     ```
-2. 将自制的LiveCD `debian.iso` 放在C盘根目录下,注意制作时在 `chroot` 阶段需要安装 `ntfs-3g` 用于访问Windows分区.以此修改`R:\EFI\grub\menu.lst` 内容如下
+2. 将自制的LiveCD `debian.iso` 放在C盘根目录下,注意制作时在 `chroot` 阶段需要安装 `ntfs-3g` 用于访问 Windows 分区.以此修改 `R:\EFI\grub\menu.lst` 内容如下
     ```
     timeout 5
     default 0
@@ -149,9 +149,9 @@
     title reboot
     reboot
     ```
-3. 将待安装的Linux镜像同样放在C盘根目录,重启进入LiveCD后,先挂载C盘,将镜像解压到`/dev/shm`,然后安装,最后修复启动项,过程与前面类似,略
+3. 将待安装的 Linux 镜像同样放在C盘根目录,重启进入 LiveCD 后,先挂载C盘,将镜像解压到 `/dev/shm` ,然后安装,最后修复启动项,过程与前面类似,略
 ### Linux to Linux
-将LiveCD镜像放在根目录下,修改grub然后重启进入`LiveCD`进行安装
+将 LiveCD 镜像放在根目录下,修改 grub 然后重启进入 LiveCD 进行安装
 ```bash
 echo 'menuentry "debian.iso" {
     set iso="/debian.iso"
@@ -214,4 +214,4 @@ grub-mkconfig -o /boot/grub/grub.cfg
         ![11000001.png](./11000001.png)
         
         在我的文件中, `0020` 处是 `lsblk` 得到的分区uuid, `0038` 处是 `fdisk` 得到的硬盘uuid,比如原字符串为 `fb63aba2-18cf-1e45-89c2-64d531e5268a` ,则在文件中存储的顺序为 `A2 AB 63 FB CF 18 45 1E 89 C2 64 D5 31 E5 26 8A` .在 `21000001` 中做同样的修改后, `q` 退出 `y` 保存
-6. 重启进入Windows
+6. 重启进入 Windows

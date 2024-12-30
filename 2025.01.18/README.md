@@ -3,7 +3,7 @@
     ```powershell
     Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH.*' | Add-WindowsCapability -Online
     ```
-2. 默认登录shell为 `cmd` ,改为 `powershell`
+2. 默认登录 shell 为 `cmd` ,改为 `powershell`
     ```powershell
     New-ItemProperty -Path "HKLM:\SOFTWARE\OpenSSH" -Name DefaultShell -Value "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" -PropertyType String -Force
     ```
@@ -17,7 +17,7 @@
     ```powershell
     New-NetFirewallRule -Name 'OpenSSH-Server-In-TCP' -DisplayName 'OpenSSH Server (sshd)' -Enabled True -Direction Inbound -Protocol TCP -Action Allow -LocalPort 8022
     ```
-5. 管理员组登录密钥放在 `C:\ProgramData\ssh\administrators_authorized_keys` ,普通用户密钥放在 `~\.ssh\authorized_keys` ,并确保该文件权限正确
+5. 管理员组登录密钥放在 `C:\ProgramData\ssh\administrators_authorized_keys` ,普通用户密钥放在 `~\.ssh\authorized_keys` ,修改完须确保权限正确
     ```powershell
     icacls.exe "C:\ProgramData\ssh\administrators_authorized_keys" /inheritance:r /grant "Administrators:F" /grant "SYSTEM:F"
     ```

@@ -16,4 +16,4 @@ for ($t = 1; $t -le $count; $t++) {
 }
 
 # usage: .\clone_vm.ps1 -vm debian12 -snap initial -count 3 -command root,"ppsswwdd",/bin/bash,-c,"apt-get update; apt-get full-upgrade -y; poweroff"
-# 意思是: 克隆名称为 debian12 的虚拟机的 initial 快照,克隆3遍,如果有 command 参数则开启克隆的虚拟机执行后面跟着的命令,以 root 身份,密码为 ppsswwdd 登录系统执行 apt-get 和 poweroff 命令, 如果没有 command 则不开机
+# 意思是: 克隆名称为 debian12 的虚拟机的 initial 快照,克隆3个,如果有 command 参数则开启克隆的虚拟机执行后面跟着的命令,以 root 身份,密码为 ppsswwdd 登录系统执行 apt-get 和 poweroff 命令,没有 command 则不开机

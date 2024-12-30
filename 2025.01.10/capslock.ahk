@@ -1,14 +1,7 @@
 ; 自定义 CapsLock 键
 SetCapsLockState "AlwaysOff"
-
+#SingleInstance force
 #NoTrayIcon
-; 是否显示任务栏图标
-CapsLock:: {
-    if (A_IconHidden = 0)
-        A_IconHidden := 1
-    else
-        A_IconHidden := 0
-}
 
 ; 打开记事本保存一些临时文本
 CapsLock & n:: {
