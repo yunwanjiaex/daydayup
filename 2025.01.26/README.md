@@ -25,7 +25,7 @@
     ```
 2. 将生成的`htop.tgz`复制到目标机器解压即可
 ### [ermine](https://www.magicermine.com/trial.html)
-1. 打包`./ErmineProTrial.x86_64 /usr/bin/htop --output=./htop`,打包好的程序只能使用1个月,到期后只能充值或调整系统时间
+1. 打包`./ErmineProTrial.x86_64 /usr/bin/htop --output=./htop`,打包好的程序只能使用1个月,到期后需要充值或调整系统时间
 2. 用gdb动态调整时间戳到试用期内(2025-01-04 22:13:20)破解之
     ```bash
     gdb -batch \

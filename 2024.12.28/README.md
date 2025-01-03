@@ -41,7 +41,7 @@ function ffmpeg { & "C:\Program Files\ffmpeg\bin\ffmpeg.exe" $args }
 
 # 取每段视频的前 8 分钟
 $len = 480
-Get-ChildItem -Filter *.mp4 | Sort-Object { # 确保顺序正常
+Get-ChildItem -Path $directory -Filter *.mp4 | Sort-Object { # 确保顺序正常
     [regex]::Replace($_.Name, '\d+', { $args[0].Value.PadLeft(20) })
 } | Select-Object -ExpandProperty Name | ForEach-Object -Begin { $c = 0 } -Process {
     $c++ # PowerShell v5 处理 utf-8 会有一些问题,此处用自增数字代替

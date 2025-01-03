@@ -3,8 +3,8 @@
 
 | 日期 | 标题 | 标签 |
 | :---: | :--- | :--- |
-| 2024.12.10 | [安装 Windows 10 LTSC](./2024.12.10/README.md) | Windows |
-| 2024.12.11 | [激活 Windows 与 Office](./2024.12.11/README.md) | Windows |
+| 2024.12.10 | [Windows 10 LTSC 个人使用](./2024.12.10/README.md) | Windows |
+| 2024.12.11 | [KMS 激活 Windows 与 Office](./2024.12.11/README.md) | Windows |
 | 2024.12.12 | [常用软件的安装与配置](./2024.12.12/install.ps1) | Software |
 | 2024.12.13 | [离线启动 Steam 游戏](./2024.12.13/README.md) | Game |
 | 2024.12.14 | [Steam 假入库流程](./2024.12.14/README.md) | Game |
@@ -57,4 +57,8 @@
 | 2025.01.30 | [常见加密 shell 脚本的解密](./2025.01.30/README.md) | Linux |
 | 2025.01.31 | [一个进程的 hosts](./2025.01.31/README.md) | Linux |
 | 2025.02.01 | [无文件执行 elf](./2025.02.01/README.md) | Linux |
-| 2025.02.02 | [手搓 helloworld](./2025.02.02/README.md) | Linux |
+| 2025.02.02 | [手搓 helloworld](./2025.02.02/README.md) | Wheel |
+| 2025.02.03 | [shellcode 加载器](./2025.02.03/README.md) | Linux |
+| 2025.02.04 | [PXE 服务](./2025.02.04/README.md) | Windows, Linux |
+| 2025.02.05 | [无盘系统](./2025.02.05/README.md) | Windows, Linux |
+| 2025.02.06 | [无人值守安装系统](./2025.02.06/README.md) | Windows, Linux |
