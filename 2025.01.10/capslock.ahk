@@ -53,3 +53,9 @@ CapsLock & s:: {
 
 CapsLock & e:: Run('explorer.exe ' A_MyDocuments '\..\Downloads')
 CapsLock & t:: Run(A_MyDocuments '\terminal\wt.exe -d ' A_MyDocuments '\..\Downloads')
+CapsLock & p:: { ; 直接睡眠唤醒后 CapsLock 会处于打开状态
+    SetTimer gotosleep, -500
+    gotosleep() {
+        DllCall("PowrProf\SetSuspendState", "int", 0, "int", 1, "int", 1)
+    }
+}

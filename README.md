@@ -62,3 +62,6 @@
 | 2025.02.04 | [PXE 服务](./2025.02.04/README.md) | Windows, Linux |
 | 2025.02.05 | [无盘系统](./2025.02.05/README.md) | Windows, Linux |
 | 2025.02.06 | [无人值守安装系统](./2025.02.06/README.md) | Windows, Linux |
+| 2025.02.07 | [静态注入 elf](./2025.02.07/README.md) | Linux |
+| 2025.02.08 | [动态注入 elf](./2025.02.08/inject.c) | Linux |
+| 2025.02.09 | [gdb 重建脱壳镜像](./2025.02.09/README.md) | Linux |
