@@ -1,5 +1,5 @@
 # shellcode 加载器
-1. 有汇编代码 `sc.s` 如下
+1. 有汇编代码 `sc.s` 如下,[参考](https://www.bilibili.com/video/BV1fV4y1f7nq)
     ```x86asm
     .global _start
     _start:
