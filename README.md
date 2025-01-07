@@ -68,3 +68,4 @@
 | 2025.02.10 | [简易 expect](./2025.02.10/expect.sh) | Wheel |
 | 2025.02.11 | [PC 远程开机](./2025.02.11/README.md) | Windows, Linux |
 | 2025.02.12 | [录屏+录按键+拷贝文件](./2025.02.12/record.py) | Wheel |
+| 2025.02.13 | [Debian On SurfacePro4](./2025.02.13/README.md) | Linux |
