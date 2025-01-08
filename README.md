@@ -69,3 +69,6 @@
 | 2025.02.11 | [PC 远程开机](./2025.02.11/README.md) | Windows, Linux |
 | 2025.02.12 | [录屏+录按键+拷贝文件](./2025.02.12/record.py) | Wheel |
 | 2025.02.13 | [Debian On SurfacePro4](./2025.02.13/README.md) | Linux |
+| 2025.02.14 | [Linux 文件共享](./2025.02.14/README.md) | Linux |
+| 2025.02.15 | [selinux 常用配置](./2025.02.15/README.md) | Linux |
+| 2025.02.16 | [启用 OverlayFS](./2025.02.16/README.md) | Linux |
