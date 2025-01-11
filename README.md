@@ -72,3 +72,5 @@
 | 2025.02.14 | [Linux 文件共享](./2025.02.14/README.md) | Linux |
 | 2025.02.15 | [selinux 常用配置](./2025.02.15/README.md) | Linux |
 | 2025.02.16 | [启用 OverlayFS](./2025.02.16/README.md) | Linux |
+| 2025.02.17 | [雷电模拟器去广告](./2025.02.17/README.md) | Android |
+| 2025.02.18 | [雷电模拟器安装面具](./2025.02.18/README.md) | Android |
