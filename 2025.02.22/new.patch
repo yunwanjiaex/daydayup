@@ -1,0 +1,72 @@
+--- rpmbuild/SPECS/nginx.spec
++++ m.txt
+@@ -99,6 +99,7 @@
+ 
+ # upstream patch - https://issues.redhat.com/browse/RHEL-40075
+ Patch9:               0010-Optimized-chain-link-usage.patch
++Patch10:              proxy_connect_rewrite_1018.patch
+ 
+ BuildRequires:        make
+ BuildRequires:        gcc
+@@ -167,6 +168,7 @@
+ Requires:             nginx-mod-http-image-filter = %{epoch}:%{version}-%{release}
+ Requires:             nginx-mod-http-perl = %{epoch}:%{version}-%{release}
+ Requires:             nginx-mod-http-xslt-filter = %{epoch}:%{version}-%{release}
++Requires:             nginx-mod-http-proxy-connect = %{epoch}:%{version}-%{release}
+ Requires:             nginx-mod-mail = %{epoch}:%{version}-%{release}
+ Requires:             nginx-mod-stream = %{epoch}:%{version}-%{release}
+ 
+@@ -225,6 +227,13 @@
+ %description mod-http-xslt-filter
+ %{summary}.
+ 
++%package mod-http-proxy-connect
++Summary:              Nginx Http proxy connect modules
++Requires:             nginx(abi) = %{nginx_abiversion}
++
++%description mod-http-proxy-connect
++%{summary}.
++
+ %package mod-mail
+ Summary:              Nginx mail modules
+ Requires:             nginx(abi) = %{nginx_abiversion}
+@@ -316,6 +325,7 @@
+     --group=%{nginx_user} \
+     --with-compat \
+     --with-debug \
++    --add-dynamic-module=%{_sourcedir}/ngx_http_proxy_connect_module \
+ %if 0%{?with_aio}
+     --with-file-aio \
+ %endif
+@@ -447,6 +457,8 @@
+     > %{buildroot}%{nginx_moduleconfdir}/mod-http-perl.conf
+ echo 'load_module "%{nginx_moduledir}/ngx_http_xslt_filter_module.so";' \
+     > %{buildroot}%{nginx_moduleconfdir}/mod-http-xslt-filter.conf
++echo 'load_module "%{nginx_moduledir}/ngx_http_proxy_connect_module.so";' \
++    > %{buildroot}%{nginx_moduleconfdir}/mod-http-proxy-connect.conf
+ echo 'load_module "%{nginx_moduledir}/ngx_mail_module.so";' \
+     > %{buildroot}%{nginx_moduleconfdir}/mod-mail.conf
+ echo 'load_module "%{nginx_moduledir}/ngx_stream_module.so";' \
+@@ -500,6 +512,11 @@
+     /usr/bin/systemctl reload nginx.service >/dev/null 2>&1 || :
+ fi
+ 
++%post mod-http-proxy-connect
++if [ $1 -eq 1 ]; then
++    /usr/bin/systemctl reload nginx.service >/dev/null 2>&1 || :
++fi
++
+ %post mod-mail
+ if [ $1 -eq 1 ]; then
+     /usr/bin/systemctl reload nginx.service >/dev/null 2>&1 || :
+@@ -596,6 +613,10 @@
+ %{nginx_moduleconfdir}/mod-http-xslt-filter.conf
+ %{nginx_moduledir}/ngx_http_xslt_filter_module.so
+ 
++%files mod-http-proxy-connect
++%{nginx_moduleconfdir}/mod-http-proxy-connect.conf
++%{nginx_moduledir}/ngx_http_proxy_connect_module.so
++
+ %files mod-mail
+ %{nginx_moduleconfdir}/mod-mail.conf
+ %{nginx_moduledir}/ngx_mail_module.so
