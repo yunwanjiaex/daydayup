@@ -85,3 +85,4 @@
 | 2025.02.27 | [配置 OpenVPN](./2025.02.27/README.md) | Windows, Linux |
 | 2025.02.28 | [GRE, IPsec 和 WireGuard](./2025.02.28/README.md) | Linux |
 | 2025.03.01 | [NAT 打洞](./2025.03.01/README.md) | Linux |
+| 2025.03.02 | [三星 S22 刷 Magisk](./2025.03.02/README.md) | Android |

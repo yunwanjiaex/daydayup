@@ -12,8 +12,7 @@ slmgr //b /ipk XXXXX-XXXXX-XXXXX-XXXXX-XXXXX
 slmgr //b /skms 192.168.xx.xx
 slmgr //b /ato
 ```
-如需转换 Windows 版本,找到目标版本的系统,将 `C:\Windows\System32\spp\tokens\skus` 覆盖到要转换的系统,执行
-`slmgr /rilc`
+如需转换 Windows 版本,找到目标版本的系统,将 `C:\Windows\System32\spp\tokens\skus` 覆盖到要转换的系统,执行 `slmgr /rilc`
 ### Office
 1. 下载运行 [ODT工具](https://www.microsoft.com/en-us/download/details.aspx?id=49117) 得到 `setup.exe`
 2. 使用 [Office自定义工具](https://config.office.com/deploymentsettings) 制作配置文件 `configuration.xml` ,以下是可以用在 `Office LTSC 2024` 的配置文件,[PIDKEY](https://learn.microsoft.com/en-us/office/volume-license-activation/gvlks) ,只安装了三件套

@@ -13,9 +13,17 @@ function add-path {
     [Environment]::SetEnvironmentVariable((New-Guid), [NullString]::value, 'User')
 }
 
+# PowerShell
+$t = "$env:USERPROFILE\Documents\WindowsPowerShell\Microsoft.PowerShell_profile.ps1"
+New-Item -Path $t -ItemType File -Force
+Set-Content -Path $t -Value @'
+Set-PSReadlineKeyHandler -Chord Ctrl+d -Function DeleteCharOrExit
+Write-Host -NoNewLine "$([char]0x1B)[6 q"
+'@
+
 # Git
 $t = get-github-tag git-for-windows/git # v2.47.1.windows.1
-Invoke-WebRequest -Uri https://github.com/git-for-windows/git/releases/download/$t/MinGit-$($t -replace 'v(.+)\.win.*','$1')-64-bit.zip -OutFile a.zip
+Invoke-WebRequest -Uri https://github.com/git-for-windows/git/releases/download/$t/MinGit-$($t -replace 'v(.+)\.windows(\.1|(\.[2-9]))','$1$3')-64-bit.zip -OutFile a.zip
 Expand-Archive -Path a.zip -DestinationPath "C:\Program Files\MinGit"
 Remove-Item -Force -Recurse -Path a.zip
 Copy-Item -Force -Recurse -Path .gitconfig, .ssh -Destination "$env:USERPROFILE"
@@ -29,11 +37,12 @@ Move-Item -Path ".\a\terminal*" -Destination "$env:USERPROFILE\Documents\termina
 Remove-Item -Force -Recurse -Path a.zip, a
 # 注册右键菜单
 $r = [Microsoft.Win32.RegistryKey]::OpenBaseKey("ClassesRoot", "Default")
-$r = $r.CreateSubKey("Directory\Background\shell\wt", $true)
-$r.SetValue($null, "Windows Terminal Here", "String")
-$r.SetValue("Icon", "$env:USERPROFILE\Documents\terminal\wt.exe,0", "String")
-$r = $r.CreateSubKey("Command", $true)
-$r.SetValue($null, "$env:USERPROFILE\Documents\terminal\wt.exe", "String")
+$s = $r.CreateSubKey("Directory\Background\shell\wt", $true)
+$s.SetValue($null, "Windows Terminal Here", "String")
+$s.SetValue("Icon", "$env:USERPROFILE\Documents\terminal\wt.exe,0", "String")
+$s = $s.CreateSubKey("Command", $true)
+$s.SetValue($null, "$env:USERPROFILE\Documents\terminal\wt.exe", "String")
+$r.Close()
 # 注册字体
 foreach ($f in Get-ChildItem -Path "$env:USERPROFILE\Documents\terminal\*.ttf") {
     Copy-Item -Force -Path $f -Destination "C:\Windows\Fonts"
@@ -42,7 +51,8 @@ foreach ($f in Get-ChildItem -Path "$env:USERPROFILE\Documents\terminal\*.ttf") 
 Copy-Item -Force -Recurse -Path "Windows Terminal" -Destination "$env:USERPROFILE\AppData\Local\Microsoft"
 
 # python
-$t = "3.13.1" # 此处版本号须手动指定
+$t = Invoke-RestMethod https://www.python.org/ftp/python/doc/ # 获取 python 最新稳定版本号
+$t = ([regex]'(?<=href=")[\d\.]+(?=/">)').Matches($t) | ForEach-Object { $_.Value } | Sort-Object { $_ -as [version] } | Select-Object -Last 1
 Invoke-WebRequest -Uri https://www.python.org/ftp/python/$t/python-$t-amd64.exe -OutFile a.exe
 Start-Process -FilePath ".\a.exe" -ArgumentList "/quiet InstallAllUsers=1 Include_launcher=0" -Wait
 Remove-Item -Force -Path a.exe
@@ -66,6 +76,7 @@ foreach ($f in '*\shell\Open with VSCode', 'Directory\shell\vscode', 'Directory\
     $s = $s.CreateSubKey("Command", $true)
     $s.SetValue($null, "$env:USERPROFILE\Documents\vscode\Code.exe `"%v`"", "String")
 }
+$r.Close()
 # 安装插件
 $env:path += ";$env:USERPROFILE\Documents\vscode\bin"
 code --force `
@@ -78,9 +89,11 @@ code --force `
     --install-extension ms-python.black-formatter
 
 # vmware
-Invoke-WebRequest -Uri https://softwareupdate.vmware.com/cds/vmw-desktop/ws/17.6.1/24319023/windows/core/VMware-workstation-17.6.1-24319023.exe.tar -OutFile a.tar # 版本写死,被博通收购后谨慎新版本
+[xml]$t = Invoke-RestMethod https://softwareupdate.vmware.com/cds/vmw-desktop/ws-windows.xml # 获取 vmware 版本号
+[string]$t = Select-Xml -Xml $t -XPath "//url" | ForEach-Object { [regex]::Match($_.node.innerxml, "(?<=/)[\d\.]+/\d+(?=/)").Value } | Sort-Object | Select-Object -Last 1
+Invoke-WebRequest -Uri https://softwareupdate.vmware.com/cds/vmw-desktop/ws/$t/windows/core/VMware-workstation-$($t -replace "/","-").exe.tar -OutFile a.tar
 & "C:\Program Files\7-Zip-Zstandard\7z.exe" x .\a.tar -oa -aoa
-Start-Process -FilePath ".\a\VMware-workstation-17.6.1-24319023.exe" -ArgumentList '/s /v"/qn SERIALNUMBER=MC60H-DWHD5-H80U9-6V85M-8280D AUTOSOFTWAREUPDATE=0 DATACOLLECTION=0 EULAS_AGREED=1"' -Wait
+Start-Process -FilePath ".\a\VMware-workstation-$($t -replace "/","-").exe" -ArgumentList '/s /v"/qn AUTOSOFTWAREUPDATE=0 DATACOLLECTION=0 EULAS_AGREED=1"' -Wait
 Remove-Item -Force -Recurse -Path a.tar, a
 # 设置内网 ip
 $env:path += ";C:\Program Files (x86)\VMware\VMware Workstation"

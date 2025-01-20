@@ -40,9 +40,10 @@ btrfs subvolume delete /hello
 # 回滚到快照前的状态,重启进入 LiveCD, 若非正在使用的分区可以在线 mv
 mount -t btrfs -o subvol=/ /dev/sda1 /mnt; cd $_
 mv @rootfs waaaa
+btrfs property set -ts waaaa/hello ro false
 mv waaaa/hello @rootfs
 # 重启后删除旧卷
 btrfs subvolume set-default /
-## btrfs subvolume list /
+btrfs subvolume list /
 btrfs subvolume delete --subvolid xx /
 ```
