@@ -29,6 +29,18 @@ Remove-Item -Force -Recurse -Path a.zip
 Copy-Item -Force -Recurse -Path .gitconfig, .ssh -Destination "$env:USERPROFILE"
 add-path "C:\Program Files\MinGit\cmd"
 
+# python
+$t = get-github-tag astral-sh/uv
+Invoke-WebRequest -Uri https://github.com/astral-sh/uv/releases/download/$t/uv-x86_64-pc-windows-msvc.zip -OutFile a.zip
+Expand-Archive -Path a.zip -DestinationPath "C:\Program Files\uv\python"
+Remove-Item -Force -Recurse -Path a.zip
+Copy-Item -Force -Path uv.bat -Destination "C:\Program Files\uv"
+& "C:\Program Files\uv\uv.bat" venv --seed "$env:USERPROFILE\Documents\mario"
+add-path "C:\Program Files\uv"
+add-path "$env:USERPROFILE\Documents\mario\Scripts"
+& "$env:USERPROFILE\Documents\mario\Scripts\pip" config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
+& "$env:USERPROFILE\Documents\mario\Scripts\pip" config set global.trusted-host pypi.tuna.tsinghua.edu.cn
+
 # terminal
 $t = get-github-tag microsoft/terminal # v1.21.3231.0
 Invoke-WebRequest -Uri https://github.com/microsoft/terminal/releases/download/$t/Microsoft.WindowsTerminal_$($t -replace '^v','')_x64.zip -OutFile a.zip
@@ -50,16 +62,6 @@ foreach ($f in Get-ChildItem -Path "$env:USERPROFILE\Documents\terminal\*.ttf") 
 }
 Copy-Item -Force -Recurse -Path "Windows Terminal" -Destination "$env:USERPROFILE\AppData\Local\Microsoft"
 
-# python
-$t = Invoke-RestMethod https://www.python.org/ftp/python/doc/ # 获取 python 最新稳定版本号
-$t = ([regex]'(?<=href=")[\d\.]+(?=/">)').Matches($t) | ForEach-Object { $_.Value } | Sort-Object { $_ -as [version] } | Select-Object -Last 1
-Invoke-WebRequest -Uri https://www.python.org/ftp/python/$t/python-$t-amd64.exe -OutFile a.exe
-Start-Process -FilePath ".\a.exe" -ArgumentList "/quiet InstallAllUsers=1 Include_launcher=0" -Wait
-Remove-Item -Force -Path a.exe
-& "C:\Program Files\Python$($t -replace '^(\d+)\.(\d+)\.\d+$','$1$2')\python.exe" -m venv "$env:USERPROFILE\Documents\mario"
-add-path "$env:USERPROFILE\Documents\mario\Scripts"
-& "$env:USERPROFILE\Documents\mario\Scripts\pip" config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
-
 # vscode
 Invoke-WebRequest -Uri 'https://code.visualstudio.com/sha/download?build=stable&os=win32-x64-archive' -OutFile a.zip
 Expand-Archive -Path a.zip -DestinationPath "$env:USERPROFILE\Documents\vscode"
@@ -67,16 +69,6 @@ Remove-Item -Force -Path a.zip
 New-Item -Force -Type Directory -Path "$env:USERPROFILE\Documents\vscode\data\user-data\User", "$env:USERPROFILE\Documents\vscode\tmp"
 Copy-Item -Force -Path argv.json -Destination "$env:USERPROFILE\Documents\vscode\data"
 Copy-Item -Force -Path settings.json -Destination "$env:USERPROFILE\Documents\vscode\data\user-data\User"
-# 注册右键菜单, Set-ItemProperty 对含有 * 号的注册表路径处理有 bug, 此处用 .Net 类
-$r = [Microsoft.Win32.RegistryKey]::OpenBaseKey("ClassesRoot", "Default")
-foreach ($f in '*\shell\Open with VSCode', 'Directory\shell\vscode', 'Directory\Background\shell\vscode') {
-    $s = $r.CreateSubKey($f, $true)
-    $s.SetValue($null, "Open with VSCode", "String")
-    $s.SetValue("Icon", "$env:USERPROFILE\Documents\vscode\Code.exe,0", "String")
-    $s = $s.CreateSubKey("Command", $true)
-    $s.SetValue($null, "$env:USERPROFILE\Documents\vscode\Code.exe `"%v`"", "String")
-}
-$r.Close()
 # 安装插件
 $env:path += ";$env:USERPROFILE\Documents\vscode\bin"
 code --force `

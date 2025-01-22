@@ -1,16 +1,13 @@
 # Windows 的备份与还原
 ### 在线
-* 手动备份
-
-    ![online](./online.png)
-
-    后面按照向导操作
-* 需要还原的机器如果可以正常启动,点击上图中的`选择其他用来还原文件的备份`
-* 如果不能启动,则需要 启动 Windows 安装盘进入`Windows RE`环境,`疑难解答` -> `高级选项` -> `查看更多恢复选项` -> `系统映像恢复`
-* 加入任务计划实现自动备份 EFI 分区, C 盘, D 盘到 E 盘
+* 备份 EFI 分区, C 盘, D 盘到 E 盘, 无法增量
     ```powershell
     wbadmin start backup -backuptarget:e: -include:c:,d: -allcritical -quiet
     ```
+* 恢复时需要进入 `Windows RE` 环境,`疑难解答`->`高级选项`->`查看更多恢复选项`->`系统映像恢复`
+* 基于文件备份,可以增量
+
+    ![online](./online.png)
 ### UWF
 * 类似于 Linux 上的 OverlayFS ,系统运行期间所有对磁盘的写入均重定向到临时位置,重启即还原
     ```powershell
