@@ -1,0 +1,44 @@
+--- /data/data/com.termux/files/usr/libexec/lxc/lxc-net	2025-01-23 21:24:20.383999648 +0800
++++ lxc-net.new	2025-01-23 21:34:36.215999642 +0800
+@@ -41,6 +41,8 @@
+ _ifdown() {
+     ip addr flush dev ${LXC_BRIDGE}
+     ip link set dev ${LXC_BRIDGE} down
++    ip route del default
++    ip rule del from all lookup main pref 30000
+ }
+ 
+ _ifup() {
+@@ -49,6 +51,8 @@
+     ip addr add ${CIDR_ADDR} dev ${LXC_BRIDGE}
+     ip link set dev ${LXC_BRIDGE} address $LXC_BRIDGE_MAC
+     ip link set dev ${LXC_BRIDGE} up
++    ip route add default via 192.168.50.1 dev wlan0
++    ip rule add from all lookup main pref 30000
+ }
+ 
+ start() {
+@@ -120,14 +124,6 @@
+         LXC_DHCP_CONFILE_ARG="--conf-file=${LXC_DHCP_CONFILE}"
+     fi
+ 
+-    # https://lists.linuxcontainers.org/pipermail/lxc-devel/2014-October/010561.html
+-    for DNSMASQ_USER in lxc-dnsmasq dnsmasq nobody
+-    do
+-        if getent passwd ${DNSMASQ_USER} >/dev/null; then
+-            break
+-        fi
+-    done
+-
+     LXC_DHCP_PING_ARG=""
+     if [ "x$LXC_DHCP_PING" = "xfalse" ]; then
+         LXC_DHCP_PING_ARG="--no-ping"
+@@ -138,7 +134,7 @@
+             --listen-address ${LXC_ADDR} --dhcp-range ${LXC_DHCP_RANGE} \
+             --dhcp-lease-max=${LXC_DHCP_MAX} --dhcp-no-override \
+             --except-interface=lo --interface=${LXC_BRIDGE} \
+-            --dhcp-leasefile="${varlib}"/misc/dnsmasq.${LXC_BRIDGE}.leases \
++            --dhcp-leasefile="${varlib}"/dnsmasq.${LXC_BRIDGE}.leases \
+             --dhcp-authoritative $LXC_IPV6_ARG || cleanup
+ 
+     touch "${varrun}"/network_up

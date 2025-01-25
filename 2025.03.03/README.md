@@ -1,7 +1,7 @@
 # S22 内核编译
 1. 准备 `Debian 12` 编译环境,安装以下工具
     ```bash
-    apt install -y build-essential python3 python-is-python3 zip xz-utils bison flex libz-dev libssl-dev libelf-dev bc cpio
+    apt install -y build-essential python3 python-is-python3 zip xz-utils bison flex libz-dev libssl-dev libelf-dev bc cpio git
     ```
 2. 在 [Samsung Open Source](https://opensource.samsung.com/uploadSearch) 中搜索 `SM-S901` 下载内核源码.处理器型号要相同,内核版本号要和手机上正在运行的内核一致,至于是国行还是美版并无太大分别.因为目前三星并未发布`5.10.209`的内核源码,所以我将手机 rom 降级到了`5.10.198`的内核
 
@@ -32,19 +32,15 @@
     ./scripts/config --file out/.config \
         -d UH -d RKP -d KDP -d SECURITY_DEFEX \
         -d INTEGRITY -d FIVE -d TRIM_UNUSED_KSYMS
-    make -j$(nproc) -C $DIR O=$DIR/out
     make -j$(nproc) -C $PWD O=$PWD/out
     ```
 6. 编译出来的内核在 `out/arch/arm64/boot/Image` ,需要借助面具安装包中的 `lib/x86_64/libmagiskboot.so` 来替换从 `AP` 的 tar 包中提取出的 `boot.img`
     ```bash
-    mv boot.img oboot.img
     mkdir 666; cd $_
-    ../libmagiskboot.so unpack ../oboot.img
-    cat out/arch/arm64/boot/Image > kernel
-    ../libmagiskboot.so repack ../oboot.img ../boot.img
-    cd ..; rm -rf 666
+    ../libmagiskboot.so unpack ../boot.img
+    cat ../Image > kernel
+    ../libmagiskboot.so repack ../boot.img ./boot.img
     tar cf 1.tar boot.img
-    mv oboot.img boot.img
     ```
     将 `1.tar` 放入 `AP` 槽中用 `Odin` 刷入即可
 
