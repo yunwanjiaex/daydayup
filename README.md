@@ -88,4 +88,6 @@
 | 2025.03.02 | [三星 S22 刷 Magisk](./2025.03.02/README.md) | Android |
 | 2025.03.03 | [S22 内核编译](./2025.03.03/README.md) | Android |
 | 2025.03.04 | [S22 启用 LXC](./2025.03.04/README.md) | Android |
-| 2025.03.05 | [Termux 和他的 ssh](./2025.03.05/README.md) | Android |
+| 2025.03.05 | [Termux 和它的 ssh](./2025.03.05/README.md) | Android |
+| 2025.03.06 | [另一种 ddns](./2025.03.06/README.md) | Linux |
+| 2025.03.07 | [Steam 游戏去 Steam](./2025.03.07/README.md) | Game |

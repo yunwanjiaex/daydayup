@@ -1,4 +1,4 @@
-# Termux 和他的 ssh
+# Termux 和它的 ssh
 1. 安装 [Termux](https://f-droid.org/zh_Hans/packages/com.termux/) 并初始化
     ```bash
     # 修改为中科大源或清华源
