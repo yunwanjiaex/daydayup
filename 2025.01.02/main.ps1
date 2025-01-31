@@ -1,18 +1,28 @@
 Set-Location -Path $PSScriptRoot
-function format_date { Get-Date -Format "yy.MM.dd_HH.mm.ss_ffffff" }
-
 # 同步本地和远程都有可能有改变的代码
+git stash
 git pull
+git stash pop
 git add -A
-git commit -m "$(format_date)"
+git commit -m "$(Get-Date -Format "yy.MM.dd_HH.mm.ss_ffffff")"
 git push
 
-# 进入最后一个 once 开头的文件夹,若有 res.txt 或没有 run.ps1 则退出
-Get-ChildItem -Directory -Filter once* | Select-Object -Last 1 | Set-Location
-$res = "res_${env:computername}.txt"
-if ((Test-Path -Path $res) -or (-not (Test-Path -Path run.ps1))) { Exit }
+Get-ChildItem -Directory -Filter task_* | ForEach-Object { Start-Job {
+        Set-Location -Path $args[0].FullName
+        # 没有 run 直接退出
+        if ( -not ( Test-Path -Path run.ps1 ) ) { exit }
+        if (Test-Path -Path sch.ps1) {
+            # sch 运行失败说明暂时不符合执行条件,退出
+            powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -File sch.ps1
+            if ( -not $?) { exit }
+        }
+        else {
+            # 无 sch 有 res 说明已经运行过,退出
+            if (Test-Path -Path res.txt) { exit }
+        }
 
-# 否则执行 run.ps1 ,执行结果写入 res.txt
-"start at $(format_date)" | Out-File -FilePath $res
-powershell -NoProfile -ExecutionPolicy Bypass -File run.ps1 | Out-File -FilePath $res -Append
-"finish at $(format_date)" | Out-File -FilePath $res -Append
+        "=========================start==========================" | Out-File -FilePath res.txt
+        powershell -NoProfile -NonInteractive -ExecutionPolicy Bypass -File run.ps1 2>&1 | Out-File -FilePath res.txt -Append
+        "=========================finish=========================" | Out-File -FilePath res.txt -Append
+    } -ArgumentList $_ }
+Get-Job | Wait-Job

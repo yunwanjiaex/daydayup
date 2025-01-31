@@ -1,15 +1,18 @@
+#!/bin/bash
 cd "$(dirname "$0")"
-format_date(){ date "+%y.%m.%d_%H.%M.%S_%6N"; }
-
+git stash
 git pull
+git stash pop
 git add -A
-git commit -m $(format_date)
-git push # -u origin master
+git commit -m $(date "+%y.%m.%d_%H.%M.%S_%6N")
+git push
 
-cd $("ls" -d once* | tail -1)
-res=res_$(hostname).txt
-[ -f $res ] || [ ! -f run.sh ] && exit
+find -maxdepth 1 -mindepth 1 -type d -name 'task_*' \
+    | xargs -III -P0 bash -c 'cd II
+    [ -f run.sh ] || exit
+    [ -f sch.sh ] && ! bash sch.sh && exit
+    [ ! -f sch.sh ] && [ -f res.txt ] && exit
 
-echo "start at $(format_date)" > $res
-"bash" run.sh >> $res
-echo "finish at $(format_date)" >> $res
+    echo "=====start======" > res.txt
+    bash run.sh &>> res.txt
+    echo "=====finish=====" >> res.txt'

@@ -89,5 +89,7 @@
 | 2025.03.03 | [S22 内核编译](./2025.03.03/README.md) | Android |
 | 2025.03.04 | [S22 启用 LXC](./2025.03.04/README.md) | Android |
 | 2025.03.05 | [Termux 和它的 ssh](./2025.03.05/README.md) | Android |
-| 2025.03.06 | [另一种 ddns](./2025.03.06/README.md) | Linux |
+| 2025.03.06 | [另一种 DDNS](./2025.03.06/server.sh) | Linux |
 | 2025.03.07 | [Steam 游戏去 Steam](./2025.03.07/README.md) | Game |
+| 2025.03.08 | [Windows 暂停键鼠相应](./2025.03.08/disable_mouse.ps1) | Windows |
+| 2025.03.09 | [重置 Windows 开机密码](./2025.03.09/README.md) | Windows |
